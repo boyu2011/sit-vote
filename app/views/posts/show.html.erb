@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Course number:</b>
+  <%= @post.course_number %>
+</p>
+
+<p>
+  <b>Course name:</b>
+  <%= @post.course_name %>
+</p>
+
+<p>
+  <b>Love reason:</b>
+  <%= @post.love_reason %>
+</p>
+
+<p>
+  <b>Vote count:</b>
+  <%= @post.vote_count %>
+</p>
+
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

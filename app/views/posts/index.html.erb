@@ -1,0 +1,26 @@
+<div class="row">
+	<div class="span8">
+		<%= render 'form' %>
+
+		<ol class="posts">
+			<% @posts.each do |post| %>
+		  		<li>
+		  			<strong>
+		    			<%= post.course_number + ' - ' + post.course_name %>
+		    		</strong><br />
+		    		<p class="text-info">
+		    			<%= simple_format post.love_reason %>
+					</p><br />
+		    			<%= button_to 'Vote (' + post.vote_count.to_s + ')', 
+		    						  :action => 'vote_plus_one', :id => post %>
+		  		</li>
+		  	<% end %>
+		</ol>
+	</div>
+
+	<div class="span4">
+		<h5>What's it about?</h5>
+		<p>Stevens Institute of Tech provides lots of excellent classes. But some students don't know them. So I create this app for students who want to recommend & vote good classes for others and students who are struggling among class election.
+		</p>
+	</div>
+</div>

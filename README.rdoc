@@ -1,0 +1,9 @@
+SIT Vote
+========
+
+Created a Rails app for SIT students to find & share good classes.
+
+Feel free to file bug to me (boyu2011@gmail.com)
+
+Thanks,
+Bo Yu

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SitVote</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>	
+	<header class="navbar navbar-fixed-top navbar-inverse">
+		<div class="navbar-inner">
+			<div class="container">
+				<!-- <%= image_tag "sit.jpg", :size => "36x36" %>-->
+				<%= link_to "SIT Vote", root_path, id: "logo" %>
+			</div>
+		</div>
+	</header>
+	
+	<div class="container">
+		<%= yield %>
+	</div>
+
+	<footer class="footer container">
+		<br />
+		<small>
+		<a href="http://github.com/boyu2011">Developed by BoYu</a>
+		</small>
+		<br />
+		<br />
+		<br />
+
+	</footer>
+</body>
+</html>
