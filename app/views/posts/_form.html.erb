@@ -1,5 +1,6 @@
 
 <%= form_for(@post) do |f| %>
+
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -12,12 +13,12 @@
     </div>
   <% end %>
 
-    <%= f.label "I'd like to recommend" %>
-    <%= f.text_field :course_number, :placeholder => 'course number' %>
-    <%= f.text_field :course_name, :placeholder => 'course name' %>
+  <%= f.label "I'd like to recommend" %>
+  <%= f.text_field :course_number, :placeholder => 'course number' %>
+  <%= f.text_field :course_name, :placeholder => 'course name' %>
 
-    <%= f.label "Because" %>
-    <%= f.text_area :love_reason, :placeholder => 'some reasons...', :cols => 100, :rows => 5 %>
+  <%= f.label "Because" %>
+  <%= f.text_area :love_reason, :placeholder => 'some reasons...', :cols => 100, :rows => 5 %>
 
   <div class="actions">
     <%= f.submit "Submit", :class => "btn btn-primary" %>

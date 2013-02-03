@@ -45,8 +45,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        #format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.html { redirect_to posts_url, notice: 'Post was successfully created.' }
+        format.html { redirect_to posts_url, notice: 'Your recommendation was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
       else
         format.html { render action: "new" }
@@ -73,16 +72,22 @@ class PostsController < ApplicationController
 
   def vote_plus_one
     @post = Post.find(params[:id])
+    have_voted = true
 
+    # have not voted yet
     if session[@post.id] != request.remote_ip
       @post.vote_count += 1
       session[@post.id] = request.remote_ip
+      have_voted = false
     end
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
-        #format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.html { redirect_to posts_url }
+        if have_voted
+          format.html { redirect_to posts_url, :notice => "Sorry, you can't vote one item more than once." }
+        else
+          format.html { redirect_to posts_url, :notice => "Your vote is counted, Thanks."}
+        end
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
